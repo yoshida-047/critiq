@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRITIQ — Review</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/review.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="index.html">CRITIQ <span>// game reviews</span></a>
+    <ul class="nav-links">
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="top-rated.html">Top Rated</a></li>
+      <li><a href="latest.html">Latest</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── REVIEW HERO ── -->
+  <div class="review-hero">
+
+    <!-- Left: wide banner + game logo -->
+    <div class="review-img-wrap">
+      <img src="" alt="" class="review-img" />
+      <div class="review-img-overlay"></div>
+      <div class="review-game-logo"></div>
+    </div>
+
+    <!-- Right: details -->
+    <div class="review-intro">
+      <a class="back-link" href="browse.html">← Back to reviews</a>
+      <div class="review-tags"></div>
+      <h1 class="review-title"></h1>
+      <p class="review-developer"></p>
+      <div class="overall-score">
+        <div class="score-circle">
+          <span class="score-num"></span>
+        </div>
+        <div class="score-info">
+          <span class="score-verdict"></span>
+          <span class="score-caption">Overall Score</span>
+        </div>
+      </div>
+      <div class="detail-grid"></div>
+    </div>
+
+  </div>
+
+  <!-- ── SCREENSHOT GALLERY ── -->
+  <section class="screenshot-gallery">
+    <div class="gallery-inner">
+      <div class="gallery-main">
+        <img src="" alt="Screenshot" id="galleryMain" />
+        <button class="gallery-arrow prev" id="galleryPrev">‹</button>
+        <button class="gallery-arrow next" id="galleryNext">›</button>
+        <div class="gallery-counter" id="galleryCounter">1 / 1</div>
+      </div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </div>
+  </section>
+
+  <!-- ── SCORE BREAKDOWN ── -->
+  <section class="breakdown-bar">
+    <div class="breakdown-inner">
+      <span class="breakdown-label">// score breakdown</span>
+      <div class="breakdown-scores"></div>
+    </div>
+  </section>
+
+  <!-- ── REVIEW BODY ── -->
+  <article class="review-body">
+    <div class="review-content"></div>
+    <aside class="review-aside">
+      <div class="aside-sticky">
+        <div class="aside-score"></div>
+        <div class="aside-breakdown"></div>
+        <div class="aside-meta"></div>
+        <a class="hero-cta" href="browse.html" style="display:block; text-align:center; margin-top:1.5rem;">← All Reviews</a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 CRITIQ</span>
+    <span>scores reflect editorial opinion, not aggregates</span>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-btns">
+    <a id="backToBrowse" href="browse.html" aria-label="Back to browse">←</a>
+    <button id="backToTop" aria-label="Back to top">↑</button>
+  </div>
+
+  <script src="js/games.js"></script>
+  <script src="js/review.js"></script>
+
+</body>
+</html>

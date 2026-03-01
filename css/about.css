@@ -1,0 +1,144 @@
+/* ============================================
+   about.css — styles specific to about.html
+   ============================================ */
+
+.about-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 3rem;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.about-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-head);
+  font-size: clamp(10rem, 24vw, 22rem);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+}
+
+.about-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.7s ease both;
+}
+
+.about-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+
+.about-heading {
+  font-family: var(--font-head);
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.about-heading em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.about-alias {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.about-alias span {
+  color: var(--text);
+}
+
+/* ── CREDIT BLOCK ── */
+.credit-section {
+  padding: 5rem 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.credit-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: fadeUp 0.6s 0.15s ease both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.credit-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+
+.credit-statement {
+  font-family: var(--font-head);
+  font-size: 2.5rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.credit-statement strong {
+  color: var(--accent);
+  font-weight: normal;
+}
+
+.alias {
+  color: var(--text-dim);
+  font-size: 1.8rem;
+}
+
+.credit-sub {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+.credit-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stack-item {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+  .about-hero { padding: 5rem 1.25rem; }
+  .credit-section { padding: 3rem 1.25rem; }
+  .credit-card { padding: 2rem 1.5rem; }
+}

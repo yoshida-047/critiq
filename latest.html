@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRITIQ — Latest Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">CRITIQ <span>// game reviews</span></a>
+    <ul class="nav-links">
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="top-rated.html">Top Rated</a></li>
+      <li><a href="latest.html" style="color:var(--accent)">Latest</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero-title">Latest<br><em>Reviews</em></h1>
+    <div class="hero-meta">
+      <div>sorted by release date</div>
+      <div>newest → oldest</div>
+      <div>scored 0–100</div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:3rem;">
+    <div class="latest-list" id="latestList"></div>
+  </section>
+
+  <footer>
+    <span>© 2026 CRITIQ</span>
+    <span>scores reflect editorial opinion, not aggregates</span>
+  </footer>
+
+  <script src="js/games.js"></script>
+  <script>
+    // Parse release year/date for sorting
+    function parseDate(str) {
+      const d = new Date(str);
+      return isNaN(d) ? new Date(str.replace(/[^\d]/g, '-')) : d;
+    }
+
+    const sorted = Object.values(GAMES).sort((a, b) =>
+      parseDate(b.release) - parseDate(a.release)
+    );
+
+    const list = document.getElementById('latestList');
+    list.innerHTML = sorted.map((g, i) => `
+      <a class="latest-item" href="review.html?game=${g.slug}" style="--i:${i}">
+        <div class="latest-img">
+          <img src="${g.image}" alt="${g.title}" loading="lazy" />
+        </div>
+        <div class="latest-body">
+          <div class="latest-meta">
+            <span class="tag">${g.tags[0]}</span>
+            <span>${g.developer} · ${g.release}</span>
+          </div>
+          <div class="latest-title">${g.title}</div>
+          <div class="latest-blurb">${g.lede}</div>
+        </div>
+        <div class="latest-score">
+          <span style="font-family:var(--font-head);font-size:2.5rem;color:var(--accent);line-height:1;">${g.score}</span>
+          <span class="verdict ${g.verdictClass}" style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;">${g.verdict}</span>
+        </div>
+      </a>
+    `).join('');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRITIQ — Game Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">CRITIQ <span>// game reviews</span></a>
+    <ul class="nav-links">
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="top-rated.html">Top Rated</a></li>
+      <li><a href="latest.html">Latest</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero-title">All<br><em>Games</em></h1>
+    <div class="hero-meta">
+      <div>17 reviews published</div>
+      <div>last updated — Feb 2026</div>
+      <div>scored 0–100</div>
+    </div>
+  </section>
+
+  <div class="filter-bar">
+    <span class="filter-label">filter //</span>
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="action">Action</button>
+    <button class="chip" data-filter="rpg">RPG</button>
+    <button class="chip" data-filter="horror">Horror</button>
+    <button class="chip" data-filter="indie">Indie</button>
+    <button class="chip" data-filter="visual-novel">Visual Novel</button>
+    <button class="chip" data-filter="open-world">Open World</button>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="game-grid" id="gameGrid">
+
+      <!-- FEATURED — RE Requiem -->
+      <a class="card featured" data-genre="horror" href="review.html?game=re-requiem">
+        <div class="card-img">
+          <span class="genre-tag">Horror</span>
+          <img src="assets/images/banners/re-requiem.jpg" alt="Resident Evil Requiem" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-title">Resident Evil Requiem</div>
+            <div class="score-ring"><span class="card-score">93</span></div>
+          </div>
+          <div class="card-meta"><span>PC · PS5 · XSX · Switch 2</span><span>2026</span></div>
+          <p class="card-blurb">Capcom brings the series back to Raccoon City with dual protagonists Grace and Leon. Tense, gorgeous, and relentlessly paced — one of the best in the franchise.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="rpg" href="review.html?game=witcher3">
+        <div class="card-img"><span class="genre-tag">RPG</span><img src="assets/images/banners/witcher3.jpg" alt="The Witcher 3" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">The Witcher 3: Wild Hunt</div><div class="score-ring"><span class="card-score">99</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · XSX · Switch</span><span>2015</span></div>
+          <p class="card-blurb">The gold standard of open world RPGs. A decade on, nothing has matched its writing, scale, or the weight of its choices.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="open-world" href="review.html?game=rdr2">
+        <div class="card-img"><span class="genre-tag">Open World</span><img src="assets/images/banners/rdr2.jpg" alt="Red Dead Redemption 2" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Red Dead Redemption 2</div><div class="score-ring"><span class="card-score">98</span></div></div>
+          <div class="card-meta"><span>PC · PS4 · Xbox One</span><span>2018</span></div>
+          <p class="card-blurb">Rockstar's magnum opus. A slow, devastating portrait of the dying frontier. Nothing else comes close.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=tlou2">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/tlou2.jpg" alt="The Last of Us Part II" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">The Last of Us Part II</div><div class="score-ring"><span class="card-score">95</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · PS4</span><span>2020</span></div>
+          <p class="card-blurb">The bravest game a major studio has made. Uncomfortable, divisive, and deeply unforgettable.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="visual-novel" href="review.html?game=fate-stay-night">
+        <div class="card-img"><span class="genre-tag">Visual Novel</span><img src="assets/images/banners/fate-stay-night.jpg" alt="Fate/stay night" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Fate/stay night REMASTERED</div><div class="score-ring"><span class="card-score">95</span></div></div>
+          <div class="card-meta"><span>PC · Switch</span><span>2025</span></div>
+          <p class="card-blurb">The foundation of a franchise, finally in official English. Twenty years later it's still the peak.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="visual-novel" href="review.html?game=tsukihime">
+        <div class="card-img"><span class="genre-tag">Visual Novel</span><img src="assets/images/banners/tsukihime.jpg" alt="Tsukihime" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Tsukihime: A Piece of Blue Glass Moon</div><div class="score-ring"><span class="card-score">94</span></div></div>
+          <div class="card-meta"><span>PS4 · Switch</span><span>2024</span></div>
+          <p class="card-blurb">Twenty years in the making. Nasu rebuilt this masterpiece from the ground up — and the result is one of the finest VNs ever written.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="indie" href="review.html?game=silksong">
+        <div class="card-img"><span class="genre-tag">Indie</span><img src="assets/images/banners/silksong.jpg" alt="Hollow Knight: Silksong" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Hollow Knight: Silksong</div><div class="score-ring"><span class="card-score">96</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · Switch 2 · XSX</span><span>2025</span></div>
+          <p class="card-blurb">Six years was worth every second. Silksong surpasses its predecessor in scope, depth, and boss design.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=ghost-of-yotei">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/ghost-of-yotei.jpg" alt="Ghost of Yōtei" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Ghost of Yōtei</div><div class="score-ring"><span class="card-score">93</span></div></div>
+          <div class="card-meta"><span>PS5</span><span>2025</span></div>
+          <p class="card-blurb">Bolder and more personal than Tsushima. Ezo is breathtaking and Atsu's quest for vengeance is gripping throughout.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=uncharted4">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/uncharted4.jpg" alt="Uncharted 4" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Uncharted 4: A Thief's End</div><div class="score-ring"><span class="card-score">93</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · PS4</span><span>2016</span></div>
+          <p class="card-blurb">The perfect closing chapter. Naughty Dog at the height of their craft — a story about growing up and letting go.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=tlou1">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/tlou1.jpg" alt="The Last of Us Part I" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">The Last of Us Part I</div><div class="score-ring"><span class="card-score">97</span></div></div>
+          <div class="card-meta"><span>PC · PS5</span><span>2022</span></div>
+          <p class="card-blurb">The definitive version of one of the greatest games ever made. Joel and Ellie remain gaming's greatest duo.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=spiderman1">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/spiderman1.jpg" alt="Marvel's Spider-Man" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Marvel's Spider-Man</div><div class="score-ring"><span class="card-score">92</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · PS4</span><span>2018</span></div>
+          <p class="card-blurb">The definitive superhero game. The best movement system in gaming wrapped around a Peter Parker worth caring about.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=miles-morales">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/miles-morales.jpg" alt="Miles Morales" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Spider-Man: Miles Morales</div><div class="score-ring"><span class="card-score">90</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · PS4</span><span>2020</span></div>
+          <p class="card-blurb">A tighter, more intimate Spider-Man story. Harlem at Christmas has never looked better.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=spiderman2">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/spiderman2.jpg" alt="Spider-Man 2" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Marvel's Spider-Man 2</div><div class="score-ring"><span class="card-score">90</span></div></div>
+          <div class="card-meta"><span>PC · PS5</span><span>2023</span></div>
+          <p class="card-blurb">The most technically spectacular superhero game ever made. The Symbiote arc delivers.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="action" href="review.html?game=ghost-of-tsushima">
+        <div class="card-img"><span class="genre-tag">Action</span><img src="assets/images/banners/ghost-of-tsushima.jpg" alt="Ghost of Tsushima" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Ghost of Tsushima</div><div class="score-ring"><span class="card-score">91</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · PS4</span><span>2020</span></div>
+          <p class="card-blurb">The most beautiful open world game ever made. A love letter to samurai cinema that stands on its own as art.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="open-world" href="review.html?game=gta5">
+        <div class="card-img"><span class="genre-tag">Open World</span><img src="assets/images/banners/gta5.jpg" alt="GTA V" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Grand Theft Auto V</div><div class="score-ring"><span class="card-score">90</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · XSX</span><span>2013</span></div>
+          <p class="card-blurb">A decade later, Los Santos remains one of the most convincing game cities ever built.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="rpg" href="review.html?game=cyberpunk">
+        <div class="card-img"><span class="genre-tag">RPG</span><img src="assets/images/banners/cyberpunk.jpg" alt="Cyberpunk 2077" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Cyberpunk 2077</div><div class="score-ring"><span class="card-score">86</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · XSX</span><span>2020</span></div>
+          <p class="card-blurb">Night City is one of the greatest game worlds ever built. Phantom Liberty made it unmissable.</p>
+          <div class="card-footer"><span class="verdict great">Recommended</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="visual-novel" href="review.html?game=mahoyo">
+        <div class="card-img"><span class="genre-tag">Visual Novel</span><img src="assets/images/banners/mahoyo.jpg" alt="Witch on the Holy Night" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Witch on the Holy Night</div><div class="score-ring"><span class="card-score">92</span></div></div>
+          <div class="card-meta"><span>PC · Switch</span><span>2022</span></div>
+          <p class="card-blurb">TYPE-MOON's most visually stunning work. A 1980s coming-of-age story unlike anything else in the medium.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-genre="rpg" href="review.html?game=persona-3-reload">
+        <div class="card-img"><span class="genre-tag">RPG</span><img src="assets/images/banners/persona-3-reload.jpg" alt="Persona 3 Reload" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-top"><div class="card-title">Persona 3 Reload</div><div class="score-ring"><span class="card-score">91</span></div></div>
+          <div class="card-meta"><span>PC · PS5 · XSX</span><span>2024</span></div>
+          <p class="card-blurb">A masterclass in how to remake a classic. Atlus treated the source material with genuine reverence.</p>
+          <div class="card-footer"><span class="verdict great">Essential</span><span class="read-link">Read review →</span></div>
+        </div>
+      </a>
+
+      <div class="empty" id="emptyState">No reviews match this filter yet.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 CRITIQ</span>
+    <span>scores reflect editorial opinion, not aggregates</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
