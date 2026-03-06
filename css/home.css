@@ -66,7 +66,7 @@
   color: var(--text-dim);
   line-height: 1.7;
   max-width: 420px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero-cta {
@@ -455,8 +455,18 @@
   .latest-score { display: none; }
   .top-grid { grid-template-columns: repeat(2, 1fr); }
 }
-/* ===== Animated Browse Button ===== */
 
+
+
+
+
+
+
+
+
+
+
+/* ── BROWSE BUTTON ── */
 .animated-button {
   position: relative;
   display: inline-flex;
@@ -476,9 +486,9 @@
   cursor: pointer;
   text-decoration: none;
   transition: all 0.6s cubic-bezier(0.23,1,0.32,1);
+  margin-top: 1rem;
 }
 
-/* arrows */
 .animated-button svg {
   position: absolute;
   width: 20px;
@@ -486,15 +496,9 @@
   transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
 }
 
-.animated-button .arr-1 {
-  right: 18px;
-}
+.animated-button .arr-1 { right: 18px; }
+.animated-button .arr-2 { left: -18%; }
 
-.animated-button .arr-2 {
-  left: -18%;
-}
-
-/* expanding circle */
 .animated-button .circle {
   position: absolute;
   top: 50%;
@@ -508,7 +512,6 @@
   transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
 }
 
-/* text movement */
 .animated-button .text {
   position: relative;
   z-index: 2;
@@ -516,24 +519,15 @@
   transition: transform 0.8s cubic-bezier(0.23,1,0.32,1);
 }
 
-/* hover animation */
 .animated-button:hover {
   color: var(--bg);
   border-radius: 12px;
   box-shadow: 0 0 0 12px transparent;
 }
 
-.animated-button:hover .arr-1 {
-  right: -25%;
-}
-
-.animated-button:hover .arr-2 {
-  left: 12px;
-}
-
-.animated-button:hover svg {
-  fill: var(--bg);
-}
+.animated-button:hover .arr-1 { right: -25%; }
+.animated-button:hover .arr-2 { left: 12px; }
+.animated-button:hover svg { fill: var(--bg); }
 
 .animated-button:hover .circle {
   width: 240px;
@@ -541,7 +535,6 @@
   opacity: 1;
 }
 
-/* click */
 .animated-button:active {
   transform: scale(0.95);
   box-shadow: 0 0 0 4px var(--accent);

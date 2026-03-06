@@ -14,17 +14,21 @@
 .review-img-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  min-height: 60vh;
+  height: 100%;
   align-self: stretch;
+  background: #000;
 }
 
 .review-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
   filter: brightness(0.75) saturate(0.7);
-  animation: slowZoom 12s ease forwards;
 }
 
 @keyframes slowZoom {
@@ -65,15 +69,78 @@
 }
 
 .back-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-dim);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
   text-decoration: none;
-  letter-spacing: 0.08em;
-  transition: color 0.15s;
+  background: transparent;
+  box-shadow: 0 0 0 2px var(--accent);
+  overflow: hidden;
   align-self: flex-start;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  min-width: 160px;
 }
-.back-link:hover { color: var(--accent); }
+
+.back-link svg {
+  position: absolute;
+  width: 16px;
+  fill: var(--accent);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.back-link .arr-1 { right: 14px; }
+.back-link .arr-2 { left: -18%; }
+
+.back-link .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.back-link .text {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  padding-right: 18px;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.back-link:hover {
+  color: var(--bg);
+  border-radius: 12px;
+  box-shadow: 0 0 0 12px transparent;
+}
+
+.back-link:hover .arr-1 { right: -25%; }
+.back-link:hover .arr-2 { left: 12px; }
+.back-link:hover svg { fill: var(--bg); }
+
+.back-link:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+.back-link:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 4px var(--accent);
+}
 
 .review-tags {
   display: flex;
@@ -239,6 +306,7 @@
 .gallery-thumbs::-webkit-scrollbar { display: none; }
 
 .gallery-thumb {
+  cursor: zoom-in;
   width: 100px;
   height: 60px;
   flex-shrink: 0;
@@ -561,4 +629,89 @@
   .detail-grid { grid-template-columns: 1fr; }
   .breakdown-scores { gap: 1rem; }
   .pros-cons { grid-template-columns: 1fr; }
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  animation: scaleIn 0.25s cubic-bezier(0.23,1,0.32,1) both;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-head);
+  font-size: 2.5rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+  z-index: 10000;
+}
+
+.lightbox-close:hover { color: var(--accent); }
+
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-head);
+  font-size: 2rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 1rem;
+  transition: color 0.2s;
+  z-index: 10000;
+  user-select: none;
+}
+
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
+.lightbox-prev:hover,
+.lightbox-next:hover { color: var(--accent); }
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* Make thumbnails show pointer */
+.thumb {
+  cursor: zoom-in;
 }

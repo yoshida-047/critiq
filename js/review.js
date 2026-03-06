@@ -150,3 +150,69 @@ window.addEventListener('scroll', () => {
 document.getElementById('backToTop').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// ── LIGHTBOX ──
+const lightboxEl = document.createElement('div');
+lightboxEl.className = 'lightbox';
+lightboxEl.innerHTML = `
+  <span class="lightbox-close">✕</span>
+  <span class="lightbox-prev">‹</span>
+  <img class="lightbox-img" src="" alt="" />
+  <span class="lightbox-next">›</span>
+  <div class="lightbox-counter"></div>
+`;
+document.body.appendChild(lightboxEl);
+
+const lbImg     = lightboxEl.querySelector('.lightbox-img');
+const lbCounter = lightboxEl.querySelector('.lightbox-counter');
+let lbIndex = 0;
+const lbShots = (game.screenshots && game.screenshots.length) ? game.screenshots : [game.image];
+
+function openLightbox(index) {
+  lbIndex = (index + lbShots.length) % lbShots.length;
+  lbImg.src = lbShots[lbIndex];
+  lbCounter.textContent = (lbIndex + 1) + ' / ' + lbShots.length;
+  lightboxEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightboxEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function lbGo(dir) {
+  openLightbox(lbIndex + dir);
+}
+
+lightboxEl.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightboxEl.querySelector('.lightbox-prev').addEventListener('click', () => lbGo(-1));
+lightboxEl.querySelector('.lightbox-next').addEventListener('click', () => lbGo(1));
+lightboxEl.addEventListener('click', e => { if (e.target === lightboxEl) closeLightbox(); });
+
+document.addEventListener('keydown', e => {
+  if (!lightboxEl.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lbGo(-1);
+  if (e.key === 'ArrowRight') lbGo(1);
+});
+
+// Hook into gallery — main image + thumbnails
+const galleryMain = document.getElementById('galleryMain');
+if (galleryMain) {
+  galleryMain.style.cursor = 'zoom-in';
+  galleryMain.addEventListener('click', () => {
+    const counter = document.getElementById('galleryCounter');
+    const idx = counter ? parseInt(counter.textContent) - 1 : 0;
+    openLightbox(idx);
+  });
+}
+
+// Thumbs are built dynamically so watch for them
+const lbThumbsWrap = document.getElementById('galleryThumbs');
+if (lbThumbsWrap) {
+  lbThumbsWrap.addEventListener('click', e => {
+    const thumb = e.target.closest('.gallery-thumb');
+    if (thumb) openLightbox(parseInt(thumb.dataset.index));
+  });
+}
